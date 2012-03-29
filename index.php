@@ -20,10 +20,8 @@ if (!isset($_REQUEST['img1']) && !isset($_REQUEST['img2'])) {
 
     ini_set('allow_url_fopen', true);
 
-    $img1 = 'http://ganglia.etsycorp.com/stacked.php?m=mysql_conns_active&c=DBShard&r=hour&st=1333050487&min=0';
-    //$img1 = $_REQUEST['img1']; 
-    $img2 = 'http://ganglia.etsycorp.com/stacked.php?m=mysql_conns&c=DBShard&r=1hours&st=1333050038&min=0';
-    //$img2 = $_REQUEST['img2']; 
+    $img1 = $_REQUEST['img1']; 
+    $img2 = $_REQUEST['img2']; 
 
     // Create image instances
     $dest = imagecreatefrompng($img1);
@@ -41,8 +39,8 @@ if (!isset($_REQUEST['img1']) && !isset($_REQUEST['img2'])) {
     imagecopymerge($dest, $src, 0, 0, 0, 0, $src_width, $src_height, 50);
 
     // Output and free from memory
-    header('Content-Type: image/gif');
-    imagegif($dest);
+    header('Content-Type: image/png');
+    imagepng($dest);
 
     imagedestroy($dest);
     imagedestroy($src);
