@@ -4,7 +4,7 @@ if (!isset($_REQUEST['img1']) && !isset($_REQUEST['img2'])) {
 
 ?>
 <h1>Merge Graphs!</h1>
-<form>
+<form method="post">
     <label for="img1">First Graph URL:</label>
     <input type="text" name="img1" id="img1" size="100">
     <br/>
